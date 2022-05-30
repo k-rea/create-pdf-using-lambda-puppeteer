@@ -2,6 +2,11 @@
 
 ---
 
+## Feature
+- Create pdf using Lambda function
+- Puppeteer is used for PDF rendering process
+- The created PDF supported Japanese Font.
+
 ## Usage
 
 ### Setting Environment Variables
@@ -20,11 +25,15 @@ export REGION=ap-northeast-1
 ```shell
 npm install
 make repository # Create ECR
-make # Build docker image and Push the image to ECR.
+make build-dev # Build docker image.
+make push-dev # Push image to ECR.
+make sls-deploy # sls deploy
 ```
 
-### Create Lambda and Api gateway
-Create Lambda function in management console.
-And create event using API Gateway.
-
  [cf. AWS Lambda の新機能 – コンテナイメージのサポート](https://aws.amazon.com/jp/blogs/news/new-for-aws-lambda-container-image-support/)
+ 
+## Test API
+
+```shell
+http
+```

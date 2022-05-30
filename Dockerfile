@@ -1,4 +1,13 @@
-FROM amazon/aws-lambda-nodejs:12
-COPY app.js package*.json ./
+FROM public.ecr.aws/lambda/nodejs:16 as builder
+WORKDIR /usr/app
+COPY package.json tsconfig.json ./
 RUN npm install
-CMD [ "app.lambdaHandler" ]
+COPY ./src/ ./src
+RUN npm run build
+
+FROM public.ecr.aws/lambda/nodejs:16
+WORKDIR ${LAMBDA_TASK_ROOT}
+COPY package.json ./
+RUN npm install --production
+COPY --from=builder /usr/app/dist/* ./
+CMD ["app.lambdaHandler"]

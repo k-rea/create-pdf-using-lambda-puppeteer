@@ -1,4 +1,17 @@
+# environment
 .envrc
-node_modules
-dist
+
+# ide
 .idea
+
+# package directories
+node_modules
+
+# Serverless directories
+.serverless
+
+# esbuild directories
+.esbuild
+
+out
+dist

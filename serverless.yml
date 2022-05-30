@@ -1,0 +1,27 @@
+# ref:https://qiita.com/yktakaha4/items/ead117870617f45c70d5
+service: ${env:APP_NAME}
+
+provider:
+  name: aws
+  profile: ${env:PROFILE}
+  region: ${env:REGION}
+  stage: ${opt:stage, self:custom.defaultStage}
+
+custom:
+  defaultStage: dev
+
+functions:
+  api:
+    image: "${env:ACCOUNT_ID}.dkr.ecr.${env:REGION}.amazonaws.com/${env:APP_NAME}:dev"
+      #      uri: "${env:ACCOUNT_ID}.dkr.ecr.${env:REGION}.amazonaws.com/${env:APP_NAME}:dev" # ダイジェスト込み
+      #      name: "${env:ACCOUNT_ID}.dkr.ecr.${env:REGION}.amazonaws.com/${env:APP_NAME}:dev" # ダイジェスト込み
+#      command:
+#        - app.createPdf
+    memorySize: 1024
+    timeout: 30
+    #    environment:
+    #      BASE_PATH: "/var/task/"
+    events:
+      - httpApi:
+          method: POST
+          path: /pdf
