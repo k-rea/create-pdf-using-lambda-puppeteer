@@ -12,16 +12,12 @@ custom:
 
 functions:
   api:
-    image: "${env:ACCOUNT_ID}.dkr.ecr.${env:REGION}.amazonaws.com/${env:APP_NAME}:dev"
-      #      uri: "${env:ACCOUNT_ID}.dkr.ecr.${env:REGION}.amazonaws.com/${env:APP_NAME}:dev" # ダイジェスト込み
-      #      name: "${env:ACCOUNT_ID}.dkr.ecr.${env:REGION}.amazonaws.com/${env:APP_NAME}:dev" # ダイジェスト込み
-#      command:
-#        - app.createPdf
+    image: "${env:ACCOUNT_ID}.dkr.ecr.${env:REGION}.amazonaws.com/${env:APP_NAME}:dev" # ダイジェスト込み
     memorySize: 1024
     timeout: 30
     #    environment:
-    #      BASE_PATH: "/var/task/"
+#      BASE_PATH: "/var/task/"
     events:
       - httpApi:
-          method: POST
+          method: '*'
           path: /pdf

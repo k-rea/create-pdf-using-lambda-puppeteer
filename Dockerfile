@@ -10,4 +10,4 @@ WORKDIR ${LAMBDA_TASK_ROOT}
 COPY package.json ./
 RUN npm install --production
 COPY --from=builder /usr/app/dist/* ./
-CMD ["app.lambdaHandler"]
+CMD ["app.pdf"]

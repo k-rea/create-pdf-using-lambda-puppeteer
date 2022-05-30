@@ -11,15 +11,15 @@ export const formatJSONResponse = (response: Record<string, unknown>) => {
   }
 }
 
-export const formatPDFResponse = (response: string) => {
+export const formatPDFResponse = (pdfBase64: string) => {
   return {
     statusCode: 200,
     headers: {
-      'Content-Length': Buffer.byteLength(response),
+      'Content-Length': Buffer.byteLength(pdfBase64),
       'Content-Type': 'application/pdf',
       // 'Content-disposition': 'attachment;filename=test.pdf'
     },
     isBase64Encoded: true,
-    body: JSON.stringify(response)
+    body: pdfBase64
   }
 }

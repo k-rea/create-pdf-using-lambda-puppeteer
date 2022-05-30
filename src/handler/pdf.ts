@@ -27,7 +27,7 @@ const _pdf: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) =>
           </head>
           <body>
              <h1>Testing.日本語のテスト</h1>
-             名前を入れないとerror。
+             名前を入れないとerrorになる?
              ${JSON.stringify(event)}
            </body>
          </html>
