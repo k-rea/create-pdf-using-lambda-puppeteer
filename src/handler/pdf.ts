@@ -28,6 +28,7 @@ const _pdf: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) =>
           <body>
              <h1>Testing.日本語のテスト</h1>
              名前を入れないとerrorになる?
+             serverless でECR作成
              ${JSON.stringify(event)}
            </body>
          </html>

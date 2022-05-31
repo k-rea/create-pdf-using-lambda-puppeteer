@@ -3,7 +3,7 @@
 ############################################################
 
 .PHONY: deploy
-deploy: build-ts build-dev push-dev sls-deploy
+deploy: sls-deploy
 
 
 ############################################################
@@ -24,6 +24,7 @@ sure:
 .PHONY: build-ts
 build-ts:
 	npm run build
+
 .PHONY: build-dev
 build-dev:
 	direnv allow

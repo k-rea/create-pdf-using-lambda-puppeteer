@@ -6,13 +6,19 @@ provider:
   profile: ${env:PROFILE}
   region: ${env:REGION}
   stage: ${opt:stage, self:custom.defaultStage}
+  ecr:
+    images:
+      dev:
+        path: ./
 
 custom:
   defaultStage: dev
 
 functions:
-  api:
-    image: "${env:ACCOUNT_ID}.dkr.ecr.${env:REGION}.amazonaws.com/${env:APP_NAME}:dev" # ダイジェスト込み
+  pdf:
+    image:
+      name: dev
+      command: ["app.pdf"]
     memorySize: 1024
     timeout: 30
     #    environment:
@@ -21,3 +27,15 @@ functions:
       - httpApi:
           method: '*'
           path: /pdf
+  ping:
+    image:
+      name: dev
+      command: ["app.ping"]
+    memorySize: 1024
+    timeout: 30
+    #    environment:
+    #      BASE_PATH: "/var/task/"
+    events:
+      - httpApi:
+          method: '*'
+          path: /test

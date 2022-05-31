@@ -5,7 +5,9 @@
   "main": "dist/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild --bundle src/app.ts --external:aws-sdk --external:chrome-aws-lambda --outfile=dist/app.js --minify --platform=node --target=es2020 --define:require.resolve=undefined "
+    "build": "esbuild --bundle src/app.ts --external:aws-sdk --external:chrome-aws-lambda --outfile=dist/app.js --minify --platform=node --target=es2020 --define:require.resolve=undefined ",
+    "deploy": "sls deploy",
+    "remove": "sls remove"
   },
   "keywords": [],
   "author": "",
