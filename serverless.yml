@@ -21,8 +21,6 @@ functions:
       command: ["app.pdf"]
     memorySize: 1024
     timeout: 30
-    #    environment:
-#      BASE_PATH: "/var/task/"
     events:
       - httpApi:
           method: '*'
@@ -33,8 +31,6 @@ functions:
       command: ["app.ping"]
     memorySize: 1024
     timeout: 30
-    #    environment:
-    #      BASE_PATH: "/var/task/"
     events:
       - httpApi:
           method: '*'
