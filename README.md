@@ -25,7 +25,7 @@ export REGION=ap-northeast-1
 
 
 ```shell
-#npm install
+npm install
 #make repository # Create ECR
 #make build-dev # Build docker image.
 #make push-dev # Push image to ECR.
