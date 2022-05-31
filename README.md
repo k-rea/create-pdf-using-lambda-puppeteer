@@ -22,18 +22,22 @@ export REGION=ap-northeast-1
 ```
 
 ### Install
+
+
 ```shell
-npm install
-make repository # Create ECR
-make build-dev # Build docker image.
-make push-dev # Push image to ECR.
-make sls-deploy # sls deploy
+#npm install
+#make repository # Create ECR
+#make build-dev # Build docker image.
+#make push-dev # Push image to ECR.
+#make sls-deploy # sls deploy
+make deploy
 ```
 
- [cf. AWS Lambda の新機能 – コンテナイメージのサポート](https://aws.amazon.com/jp/blogs/news/new-for-aws-lambda-container-image-support/)
- 
+## 参考
+ - [ AWS Lambda の新機能 – コンテナイメージのサポート](https://aws.amazon.com/jp/blogs/news/new-for-aws-lambda-container-image-support/)
+ - [Serverless FrameworkがLambda用コンテナを自動でECRにデプロイできるようになってた件](https://zenn.dev/qazx7412/articles/75862c72d6effa) 
 ## Test API
 
 ```shell
-http
+http POST url name=test
 ```
